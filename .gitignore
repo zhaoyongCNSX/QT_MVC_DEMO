@@ -1,2 +1,9 @@
 Build/
+debug/
+release/
+GeneratedFiles/
+Win32
+*.opensdf
+*.sdf
+*.sln
 *.user
