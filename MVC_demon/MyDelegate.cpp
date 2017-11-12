@@ -1,5 +1,6 @@
 #include "stdafx.h"
 #include "MyDelegate.h"
+#include <QFileSystemModel>
 
 
 MyDelegate::MyDelegate()
@@ -14,6 +15,15 @@ MyDelegate::~MyDelegate()
 
 void MyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, const QModelIndex &index) const
 {
+
+	const QFileSystemModel *nModel = qobject_cast<const QFileSystemModel *>(index.model());
+
+	if (!nModel || !index.isValid()) {
+		Q_ASSERT(0);
+		return;
+	}
+	
+
 
 #if 1
 	painter->save();
@@ -35,6 +45,32 @@ void MyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, co
 #else 
 	QStyledItemDelegate::paint(painter, option, index);
 #endif 
+
+	QPen nTextPen;
+	nTextPen.setColor(Qt::black);
+	nTextPen.setWidth(2);
+
+	QFont nTextFont;
+	nTextFont.setBold(true);
+	nTextFont.setPointSize(20);
+
+	painter->save();
+	painter->setPen(nTextPen);
+	painter->setFont(nTextFont);
+
+	QString nStr("Other");
+	QFileInfo nFileInfo = nModel->fileInfo(index);
+	if (nFileInfo.isDir()) {
+		nStr = QString("DIR");
+	}
+	else if (nFileInfo.isFile()){
+		if (nFileInfo.suffix() == "mp4") {
+			nStr = QString("Video");
+		}
+	}
+
+	painter->drawText(option.rect, Qt::AlignHCenter | Qt::AlignBottom, nStr);
+	painter->restore();
 }
 
 QSize MyDelegate::sizeHint(const QStyleOptionViewItem &option, const QModelIndex &index) const
