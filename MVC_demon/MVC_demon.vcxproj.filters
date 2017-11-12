@@ -59,9 +59,21 @@
     <ClCompile Include="GeneratedFiles\Release\moc_widget.cpp">
       <Filter>Generated Files\Release</Filter>
     </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MyDelegate.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MyDelegate.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
+    <ClCompile Include="MyDelegate.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="widget.h">
+      <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MyDelegate.h">
       <Filter>Header Files</Filter>
     </CustomBuild>
   </ItemGroup>

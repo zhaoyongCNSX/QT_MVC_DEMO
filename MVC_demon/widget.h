@@ -5,9 +5,13 @@
 
 #include <QFileSystemModel>
 
+
+
 namespace Ui {
 class Widget;
 }
+
+class MyDelegate;
 
 class Widget : public QWidget
 {
@@ -28,6 +32,7 @@ private:
     Ui::Widget *ui;
 
     QFileSystemModel *m_model;
+	MyDelegate *m_delegate;
 };
 
 #endif // WIDGET_H
