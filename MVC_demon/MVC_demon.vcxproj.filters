@@ -68,6 +68,15 @@
     <ClCompile Include="MyDelegate.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MyListView.cpp">
+      <Filter>Generated Files</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Debug\moc_MyListView.cpp">
+      <Filter>Generated Files\Debug</Filter>
+    </ClCompile>
+    <ClCompile Include="GeneratedFiles\Release\moc_MyListView.cpp">
+      <Filter>Generated Files\Release</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <CustomBuild Include="widget.h">
@@ -75,6 +84,9 @@
     </CustomBuild>
     <CustomBuild Include="MyDelegate.h">
       <Filter>Header Files</Filter>
+    </CustomBuild>
+    <CustomBuild Include="MyListView.h">
+      <Filter>Generated Files</Filter>
     </CustomBuild>
   </ItemGroup>
   <ItemGroup>

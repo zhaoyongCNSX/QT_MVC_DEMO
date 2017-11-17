@@ -15,7 +15,7 @@
   </property>
   <layout class="QVBoxLayout" name="verticalLayout">
    <item>
-    <widget class="QListView" name="m_view"/>
+    <widget class="MyListView" name="m_view"/>
    </item>
    <item>
     <widget class="QLabel" name="crtPath">
@@ -34,6 +34,13 @@
   </layout>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
+ <customwidgets>
+  <customwidget>
+   <class>MyListView</class>
+   <extends>QListView</extends>
+   <header>MyListView.h</header>
+  </customwidget>
+ </customwidgets>
  <resources/>
  <connections/>
 </ui>

@@ -24,7 +24,6 @@ void MyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, co
 	}
 	
 
-
 #if 1
 	painter->save();
 
@@ -36,12 +35,24 @@ void MyDelegate::paint(QPainter *painter, const QStyleOptionViewItem &option, co
 		painter->setPen(Qt::black);
 		painter->setBrush(QBrush(Qt::green));
 	}
+	else if (option.state & QStyle::State_Selected) {
+		painter->setPen(Qt::black);
+		painter->setBrush(QBrush(Qt::black));
+	}
 	else {
 		painter->setPen(Qt::black);
 		painter->setBrush(QBrush(Qt::blue));
 	}
-	painter->drawRect(option.rect);
+
+	
+	if (option.showDecorationSelected) {	//???
+		painter->drawRect(option.rect);
+	}
+	else {
+		painter->drawRect(option.rect.marginsRemoved(QMargins(10, 10, 10, 10)));
+	}
 	painter->restore();
+
 #else 
 	QStyledItemDelegate::paint(painter, option, index);
 #endif 

@@ -29,6 +29,9 @@ Widget::Widget(QWidget *parent)
 	ui->m_view->setSelectionRectVisible(false);
 	ui->m_view->setFlow(QListView::TopToBottom);	//从上到下布局
 
+	ui->m_view->setDragEnabled(false);
+
+	//ui->m_view->setAutoScroll(true);
 
     connect(ui->m_view, &QListView::clicked, this, &Widget::SLOT_viewItemClicked);
 
@@ -60,6 +63,8 @@ void Widget::on_pushButton_clicked()
     qDebug() << "dir path: " << nDir.absolutePath();
     if (nDir.isRoot()) {
         ui->m_view->setRootIndex(m_model->index(""));
+
+		ui->m_view->setCurrentIndex(ui->m_view->currentIndex());
     } else {
         if (nDir.cdUp()) {
             qDebug() << "cdUp path: " << nDir.absolutePath();
